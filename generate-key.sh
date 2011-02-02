@@ -7,6 +7,11 @@ PRIVDIR="./private"
 pubkey="$PUBDIR/mageia-board-pubkey.gpg"
 seckey="$PRIVDIR/mageia-board-seckey.gpg"
 
+echo 'Today is :'
+date
+echo '(check if the date is correct and press enter)'
+read z
+
 chmod 700 "$GPGHOMEDIR"
 
 echo "Generate key :"
