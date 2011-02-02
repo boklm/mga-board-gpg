@@ -3,6 +3,7 @@
 GPGHOMEDIR="./homedir"
 PUBDIR="./public"
 PRIVDIR="./private"
+INPUTDIR="./input"
 
 pubkey="$PUBDIR/mageia-board-pubkey.gpg"
 seckey="$PRIVDIR/mageia-board-seckey.gpg"
@@ -15,7 +16,7 @@ read z
 chmod 700 "$GPGHOMEDIR"
 
 echo "Generate key :"
-gpg --homedir "$GPGHOMEDIR" --batch --gen-key board.batch
+gpg --homedir "$GPGHOMEDIR" --batch --gen-key "$INPUTDIR/board.batch"
 
 echo "Public key :"
 gpg --homedir "$GPGHOMEDIR" --list-keys
