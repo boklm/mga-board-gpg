@@ -3,7 +3,7 @@ Key-Type: RSA
 Key-Length: 4096
 Name-Real: Mageia Board
 Name-Email: board@mageia.org
-Expire-Date: 730d
+Expire-Date: 400d
 %commit
 %echo done
 
