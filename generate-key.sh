@@ -6,7 +6,9 @@ PRIVDIR="./private"
 INPUTDIR="./input"
 
 pubkey="$PUBDIR/mageia-board-pubkey.gpg"
-seckey="$PRIVDIR/mageia-board-seckey.gpg"
+seckey="$PRIVDIR/mageia-board-seckey"
+seckey_e="$PRIVDIR/mageia-board-seckey.gpg"
+passphrase="$PRIVDIR/passphrase"
 
 echo 'Today is :'
 date
@@ -30,7 +32,9 @@ gpg --homedir homedir --export-secret-keys -a > "$seckey"
 rm -Rf "$GPGHOMEDIR"
 
 echo "Generate passphrase"
-./random-passphrase > "$PRIVDIR/passphrase"
+./random-passphrase > "$passphrase"
+gpg -c --passphrase-file "$passphrase" "$seckey"
+rm -f "$seckey"
 
 #TODO : split secret key using ssss-split
 
