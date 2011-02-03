@@ -10,10 +10,8 @@ while ($size) {
     my $o;
     print STDERR "$size random bytes to read.\n";
     read $rf, $o, 1;
-    if ($o ne "\n" && $o ne "\r") {
-	print unpack("H*", $o);
-	$size--;
-    }
+    print unpack("H*", $o);
+    $size--;
 }
 close($rf);
 

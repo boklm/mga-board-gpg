@@ -7,6 +7,7 @@ date
 echo '(check if the date is correct and press enter)'
 read z
 
+mkdir -p "$GPGHOMEDIR"
 chmod 700 "$GPGHOMEDIR"
 
 echo "Generate key :"
@@ -28,5 +29,5 @@ echo "Generate passphrase"
 gpg -c --passphrase-file "$passphrase" "$seckey"
 rm -f "$seckey"
 
-#TODO : split secret key using ssss-split
+./split-passphrase
 
