@@ -9,7 +9,7 @@ seckey_e="$PRIVDIR/mageia-board-seckey.gpg"
 passphrase="$PRIVDIR/passphrase"
 
 ssplit="./bin/ssss-split"
-scombine="./bin/sss-combine"
+scombine="./bin/ssss-combine"
 partsdir="$PRIVDIR/parts"
 nb_threshold=3
 nb_shares=6

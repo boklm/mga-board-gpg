@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. ./config
+
+cat "$partsdir/"* | $scombine -x -t $nb_threshold 2>&1 | grep '^Resulting secret: ' | sed 's/^Resulting secret: //' > "$passphrase"
+
