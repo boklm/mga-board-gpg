@@ -29,5 +29,8 @@ gpg --homedir homedir --export-secret-keys -a > "$seckey"
 
 rm -Rf "$GPGHOMEDIR"
 
+echo "Generate passphrase"
+./random-passphrase > "$PRIVDIR/passphrase"
+
 #TODO : split secret key using ssss-split
 
