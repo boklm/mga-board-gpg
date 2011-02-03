@@ -1,0 +1,31 @@
+#!/bin/sh
+
+. ./config
+
+if [ $# -ne 2 ]
+then
+    echo "Usage: $0 [part_number] [dest_dir]" 1>&2
+    exit 1
+fi
+
+partnum="$1"
+destdir="$2"
+
+if ! [ -f "$partsdir/$partnum" ]
+then
+    echo "Part $partnum doesn't exist."
+    exit 1
+fi
+
+if ! [ -d "$destdir" ]
+then
+    echo "Destination dir $destdir does not exist."
+    exit 1
+fi
+
+mkdir -p "$destdir/private"
+
+cp -a "$PUBDIR" "$destdir/"
+mv "$partsdir/$partnum" "$destdir/private/mageia-board-$partnum"
+cp -p "$seckey_e" "$destdir/private/"
+
