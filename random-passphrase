@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 
-my $size = 200;
+my $size = 100;
 
 binmode(STDOUT, ":utf8");
 
@@ -11,7 +11,7 @@ while ($size) {
     print STDERR "$size random bytes to read.\n";
     read $rf, $o, 1;
     if ($o ne "\n" && $o ne "\r") {
-	print $o;
+	print unpack("H*", $o);
 	$size--;
     }
 }
