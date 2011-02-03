@@ -1,14 +1,6 @@
 #!/bin/sh
 
-GPGHOMEDIR="./homedir"
-PUBDIR="./public"
-PRIVDIR="./private"
-INPUTDIR="./input"
-
-pubkey="$PUBDIR/mageia-board-pubkey.gpg"
-seckey="$PRIVDIR/mageia-board-seckey"
-seckey_e="$PRIVDIR/mageia-board-seckey.gpg"
-passphrase="$PRIVDIR/passphrase"
+. ./config
 
 echo 'Today is :'
 date

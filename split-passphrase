@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. ./config
+
+ssplit="./bin/ssss-split"
+scombine="./bin/sss-combine"
+partsdir="$PRIVDIR/parts"
+nb_threshold=3
+nb_shares=6
+
+mkdir -p "$partsdir"
+
+$ssplit -x -t $nb_threshold -n $nb_shares < "$passphrase" > "$partsdir/all"
+
+for num in `seq 1 $nb_shares`
+do
+    grep "^$num-" "$partsdir/all" > "$partsdir/$num"
+done
+
+rm -f "$partsdir/all"
+
