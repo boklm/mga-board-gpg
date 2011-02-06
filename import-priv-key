@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. ./config
+
+./unsplit-passphrase
+
+mkdir -p "$GPGHOMEDIR"
+chmod 700 "$GPGHOMEDIR"
+
+gpg --decrypt  --passphrase-file "$passphrase" "$seckey_e" > "$seckey"
+rm -f "$passphrase"
+gpg --homedir "$GPGHOMEDIR" --import "$seckey"
+rm -f "$seckey"
+
