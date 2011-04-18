@@ -1,8 +1,7 @@
 This directory contains some scripts used to generate and use GPG keys
 for Mageia.
 
-To use them, gpg needs to be installed, and ssss-combine ssss-split
-binaries should be in ./bin directory (or path updated in config file).
+To use them, gpg and sss packages needs to be installed.
 
 - generate-key : generate a new GPG key, copy the public key in ./public
   directory. The private key is encrypted and copied in file
