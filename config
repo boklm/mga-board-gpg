@@ -1,3 +1,9 @@
+if ! rpm -q gnupg > /dev/null || ! rpm -q ssss > /dev/null
+then
+    echo "gnupg and ssss packages need to be installed" >&2
+    exit 1
+fi
+
 GPGHOMEDIR="./homedir"
 PUBDIR="./public"
 PRIVDIR="./private"
